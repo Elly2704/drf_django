@@ -78,8 +78,12 @@ WSGI_APPLICATION = 'drf_django.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'PASSWORD': 'postgres',
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
 
@@ -141,6 +145,7 @@ REST_FRAMEWORK = {
     ],
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.AllowAny',
+        #'rest_framework.permissions.IsAuthenticated', #django-oauth-toolkit
     ],
 
     'DEFAULT_AUTHENTICATION_CLASSES': [
